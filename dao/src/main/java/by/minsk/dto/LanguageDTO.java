@@ -6,5 +6,7 @@ import lombok.Data;
 public class LanguageDTO {
 
     int id;
+
     String languageText;
+
 }

@@ -43,6 +43,4 @@ public class Question {
     @Column(name = "language_id")
     int languageId;
 
-
-
 }

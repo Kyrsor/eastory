@@ -10,12 +10,10 @@ import javax.persistence.*;
 @Table(name = "tests")
 public class Test {
 
-
     @Column(name = "topic_id")
     int topicId;
 
     @Column(name = "question_id")
     int questionId;
-
 
 }
