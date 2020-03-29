@@ -1,7 +1,9 @@
 package by.minsk.repository;
 
-import org.springframework.stereotype.Repository;
+import by.minsk.entity.Language;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Repository
-public class LanguageRepository {
+
+
+public interface LanguageRepository extends JpaRepository<Language, Integer> {
 }

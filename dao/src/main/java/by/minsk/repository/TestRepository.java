@@ -1,7 +1,9 @@
 package by.minsk.repository;
 
+import by.minsk.entity.Test;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class TestRepository {
+public interface TestRepository extends JpaRepository<Test, Integer> {
 }
