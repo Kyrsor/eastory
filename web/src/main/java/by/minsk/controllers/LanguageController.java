@@ -24,34 +24,40 @@ public class LanguageController {
 
     @GetMapping
     public ResponseEntity<List<LanguageDTO>> getAll() {
+        log.info("LanguageController, getAll");
         List<LanguageDTO> languageDTOList = languageService.getAll();
         return new ResponseEntity<>(languageDTOList, HttpStatus.OK);
     }
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<LanguageDTO> getById(@PathVariable int id) {
+        log.info("LanguageController, getById");
         LanguageDTO languageDTO = languageService.getById(id);
         return new ResponseEntity<>(languageDTO, HttpStatus.OK);
     }
 
     @GetMapping(value = "/{languageText}")
     public ResponseEntity<LanguageDTO> getByName(@PathVariable String languageText) {
+        log.info("LanguageController, getByName");
         LanguageDTO languageDTO = languageService.getByName(languageText);
         return new ResponseEntity<>(languageDTO, HttpStatus.OK);
     }
     @PostMapping
     public ResponseEntity<LanguageDTO> create(@RequestBody LanguageDTO languageDTO) {
+        log.info("LanguageController, create");
         LanguageDTO languageDTONew = languageService.create(languageDTO);
         return new ResponseEntity<>(languageDTONew, HttpStatus.CREATED);
     }
 
     @PutMapping
     public ResponseEntity<LanguageDTO> update(@RequestBody LanguageDTO languageDTO) {
+        log.info("LanguageController, update");
         LanguageDTO languageDTONew = languageService.update(languageDTO);
         return new ResponseEntity<>(languageDTONew, HttpStatus.OK);
     }
     @DeleteMapping(value = "/{id}")
     public ResponseEntity  delete(@PathVariable int id) {
+        log.info("LanguageController, delete");
         languageService.delete(id);
         return ResponseEntity.ok("Language is deleted");
     }

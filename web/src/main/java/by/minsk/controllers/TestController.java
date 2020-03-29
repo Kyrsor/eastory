@@ -26,34 +26,40 @@ public class TestController {
 
     @GetMapping
     public ResponseEntity<List<TestDTOs>> getAll() {
+        log.info("TestController, getAll");
         List<TestDTOs> languageDTOList = testService.getAll();
         return new ResponseEntity<>(languageDTOList, HttpStatus.OK);
     }
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<TestDTOs> getById(@PathVariable int id) {
+        log.info("TestController, getById");
         TestDTOs testDTOs = testService.getById(id);
         return new ResponseEntity<>(testDTOs, HttpStatus.OK);
     }
 
     @GetMapping(value = "/{testName}")
     public ResponseEntity<TestDTOs> getByName(@PathVariable String testName) {
+        log.info("TestController, getByName");
         TestDTOs testDTOs = testService.getByName(testName);
         return new ResponseEntity<>(testDTOs, HttpStatus.OK);
     }
     @PostMapping
     public ResponseEntity<TestDTOs> create(@RequestBody TestDTOs testDTOs) {
+        log.info("TestController, create");
         TestDTOs testDTOsNew = testService.create(testDTOs);
         return new ResponseEntity<>(testDTOsNew, HttpStatus.CREATED);
     }
 
     @PutMapping
     public ResponseEntity<TestDTOs> update(@RequestBody TestDTOs testDTOs) {
+        log.info("TestController, update");
         TestDTOs testDTOsNew = testService.update(testDTOs);
         return new ResponseEntity<>(testDTOsNew, HttpStatus.OK);
     }
     @DeleteMapping(value = "/{id}")
     public ResponseEntity  delete(@PathVariable int id) {
+        log.info("TestController, delete");
         testService.delete(id);
         return ResponseEntity.ok("Test is deleted");
     }

@@ -24,35 +24,41 @@ public class QuestionController {
 
     @GetMapping
     public ResponseEntity<List<QuestionDTO>> getAll() {
+        log.info("QuestionController, getAll");
         List<QuestionDTO> cityDTOList = questionService.getAll();
         return new ResponseEntity<>(cityDTOList, HttpStatus.OK);
     }
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<List<QuestionDTO>> getAllByLanguageId(@PathVariable int id) {
+        log.info("QuestionController, getAllByLanguageId");
         List<QuestionDTO> cityDTOList = questionService.getAllByLanguageId(id);
         return new ResponseEntity<>(cityDTOList, HttpStatus.OK);
     }
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<QuestionDTO> getById(@PathVariable int id) {
+        log.info("QuestionController, getById");
         QuestionDTO questionDTO = questionService.getById(id);
         return new ResponseEntity<>(questionDTO, HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<QuestionDTO> create(@RequestBody QuestionDTO questionDTO) {
+        log.info("QuestionController, create");
         QuestionDTO questionDTONew = questionService.create(questionDTO);
         return new ResponseEntity<>(questionDTONew, HttpStatus.CREATED);
     }
 
     @PutMapping
     public ResponseEntity<QuestionDTO> update(@RequestBody QuestionDTO questionDTO) {
+        log.info("QuestionController, update");
         QuestionDTO questionDTONew = questionService.update(questionDTO);
         return new ResponseEntity<>(questionDTONew, HttpStatus.OK);
     }
     @DeleteMapping(value = "/{id}")
     public ResponseEntity delete(@PathVariable int id) {
+        log.info("QuestionController, delete");
         questionService.delete(id);
         return ResponseEntity.ok("Question is deleted");
     }
