@@ -2,8 +2,14 @@ package by.minsk.entity;
 
 import lombok.Data;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.sql.Blob;
+
+
 @Data
+@Entity
+@Table(name = "questions")
 public class Question {
 
     int id;
