@@ -2,8 +2,7 @@ package by.minsk.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 @Data
@@ -11,8 +10,12 @@ import javax.persistence.Table;
 @Table(name = "languages")
 public class Language {
 
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
-    String languageText;
 
+    @Column(name = "language")
+    String languageText;
 
 }
