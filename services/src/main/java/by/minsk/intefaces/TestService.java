@@ -5,6 +5,7 @@ import by.minsk.dto.TestDTOs;
 import java.util.List;
 
 public interface TestService {
+
     List<TestDTOs> getAll();
 
     TestDTOs getById(int id);
@@ -16,6 +17,5 @@ public interface TestService {
     TestDTOs update(TestDTOs testDTOs);
 
     void delete(int id);
-
 
 }
