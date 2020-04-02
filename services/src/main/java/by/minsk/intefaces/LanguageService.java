@@ -16,6 +16,9 @@ public interface LanguageService {
 
     LanguageDTO update(LanguageDTO languageDTO);
 
-    void delete(int id);
+    void deleteById(int id);
+
+    void deleteByLanguageText(String languageText);
+
 
 }
