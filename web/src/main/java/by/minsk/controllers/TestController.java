@@ -2,6 +2,7 @@ package by.minsk.controllers;
 
 import by.minsk.dto.TestDTO;
 import by.minsk.impl.TestServiceImpl;
+import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,7 @@ import java.util.Map;
 @Slf4j
 @RestController
 @RequestMapping("/test")
+@Api
 public class TestController {
 
     private TestServiceImpl testService;

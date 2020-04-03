@@ -2,6 +2,7 @@ package by.minsk.controllers;
 
 import by.minsk.dto.TopicDTO;
 import by.minsk.impl.TopicServiceImpl;
+import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +14,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/topic")
+@Api
 public class TopicController {
 
     private TopicServiceImpl topicService;
