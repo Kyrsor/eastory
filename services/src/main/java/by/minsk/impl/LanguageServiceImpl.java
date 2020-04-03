@@ -34,7 +34,7 @@ public class LanguageServiceImpl implements LanguageService {
 
         log.info("LanguageServiceImpl, getById");
 
-        Language language = languageRepository.findLanguageById(id);
+        Language language = languageRepository.findOne(id);
 
         if (language == null) {
 
@@ -88,11 +88,11 @@ public class LanguageServiceImpl implements LanguageService {
 
         log.info("LanguageServiceImpl, update");
 
-        Language language=languageRepository.findLanguageById(languageDTO.getId());
+        Language language=languageRepository.findOne(languageDTO.getId());
 
         if(language==null){
 
-            throw new EntityNotFoundException("Cannot update language with such parameters");
+            throw new EntityNotFoundException("No such language to update");
 
         }
 
