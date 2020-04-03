@@ -11,7 +11,7 @@ import javax.persistence.*;
 public class Topic {
 
     @Id
-    @Column(name = "topic_id")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
 
