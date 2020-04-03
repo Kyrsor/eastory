@@ -56,11 +56,17 @@ public class LanguageController {
         return new ResponseEntity<>(languageDTONew, HttpStatus.OK);
     }
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity  delete(@PathVariable int id) {
-        log.info("LanguageController, delete");
-        languageService.delete(id);
+    public ResponseEntity  deleteById(@PathVariable int id) {
+        log.info("LanguageController, deleteById");
+        languageService.deleteById(id);
         return ResponseEntity.ok("Language is deleted");
     }
 
+    @DeleteMapping(value = "/{languageText}")
+    public ResponseEntity  deleteByLanguageText(@PathVariable String languageText) {
+        log.info("LanguageController, deleteByLanguageText");
+        languageService.deleteByLanguageText(languageText);
+        return ResponseEntity.ok("Language is deleted");
+    }
 
 }

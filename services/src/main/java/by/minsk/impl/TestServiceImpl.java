@@ -1,39 +1,87 @@
 package by.minsk.impl;
 
-import by.minsk.dto.TestDTOs;
+import by.minsk.converters.TestConverter;
+import by.minsk.dto.TestDTO;
+
+import by.minsk.entity.Test;
 import by.minsk.intefaces.TestService;
+import by.minsk.repository.TestRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 @Slf4j
+@Service
 public class TestServiceImpl implements TestService {
-    public List<TestDTOs> getAll() {
+
+    private TestConverter testConverter;
+    private TestRepository testRepository;
+
+    @Autowired
+    public TestServiceImpl(TestConverter testConverter, TestRepository testRepository) {
+        this.testConverter = testConverter;
+        this.testRepository = testRepository;
+    }
+
+    public Map<Integer, List<TestDTO>> getAll() {
+
         log.info("TestServiceImpl, getAll");
-        return null;
+
+        return testRepository.findAll()
+                .stream()
+                .map(testConverter::convertToDTO)
+                .collect(Collectors.groupingBy(TestDTO::getTopicId));
+
     }
 
-    public TestDTOs getById(int id) {
+    public List<TestDTO> getById(int id) {
+
         log.info("TestServiceImpl, getById");
-        return null;
+
+        return testRepository.findAllByTopicId(id)
+                .stream()
+                .map(testConverter::convertToDTO)
+                .collect(Collectors.toList());
+
     }
 
-    public TestDTOs getByName(String testName) {
+    public List<TestDTO> getByName(String testName) {
         log.info("TestServiceImpl, getByName");
         return null;
     }
 
-    public TestDTOs create(TestDTOs testDTOs) {
+    public List<TestDTO> create(List<TestDTO> testDTOList) {
         log.info("TestServiceImpl, create");
-        return null;
+        List<Test> testList=new ArrayList<>();
+        for(TestDTO testDTO:testDTOList){
+            testList.add(testConverter.convertToEntity(testDTO));
+        }
+
+        testRepository.save(testList);
+
+         testDTOList=new ArrayList<>();
+        for(Test test:testList){
+            testDTOList.add(testConverter.convertToDTO(test));
+        }
+        return testDTOList;
+
     }
 
-    public TestDTOs update(TestDTOs testDTOs) {
+    public List<TestDTO> update(List<TestDTO> testDTOList) {
         log.info("TestServiceImpl, update");
         return null;
     }
 
-    public void delete(int id) {
+    public void deleteById(int id) {
         log.info("TestServiceImpl, delete");
+
+        testRepository.deleteAllByTopicId(id);
+
 
     }
 }

@@ -16,6 +16,7 @@ public interface TopicService {
 
     TopicDTO update(TopicDTO topicDTO);
 
-    void delete(int id);
+    void deleteById(int id);
 
+    void deleteByTopicText(String topicText);
 }

@@ -57,9 +57,16 @@ public class TopicController {
         return new ResponseEntity<>(topicDTONew, HttpStatus.OK);
     }
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity delete(@PathVariable int id) {
+    public ResponseEntity deleteById(@PathVariable int id) {
         log.info("TopicController, delete");
-        topicService.delete(id);
+        topicService.deleteById(id);
+        return ResponseEntity.ok("Topic is deleted");
+    }
+
+    @DeleteMapping(value = "/{topicText}")
+    public ResponseEntity deleteByTopicText(@PathVariable String topicText) {
+        log.info("TopicController, delete");
+        topicService.deleteByTopicText(topicText);
         return ResponseEntity.ok("Topic is deleted");
     }
 

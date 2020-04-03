@@ -1,21 +1,22 @@
 package by.minsk.intefaces;
 
-import by.minsk.dto.TestDTOs;
+import by.minsk.dto.TestDTO;
 
 import java.util.List;
+import java.util.Map;
 
 public interface TestService {
 
-    List<TestDTOs> getAll();
+    Map<Integer, List<TestDTO>> getAll();
 
-    TestDTOs getById(int id);
+    List<TestDTO> getById(int id);
 
-    TestDTOs getByName(String testName);
+    List<TestDTO> getByName(String testName);
 
-    TestDTOs create(TestDTOs testDTOs);
+    List<TestDTO> create(List<TestDTO> testDTOList);
 
-    TestDTOs update(TestDTOs testDTOs);
+    List<TestDTO> update(List<TestDTO> testDTOList);
 
-    void delete(int id);
+    void deleteById(int id);
 
 }

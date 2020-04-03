@@ -1,7 +1,6 @@
 package by.minsk.controllers;
 
-import by.minsk.dto.LanguageDTO;
-import by.minsk.dto.TestDTOs;
+import by.minsk.dto.TestDTO;
 import by.minsk.impl.TestServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @RestController
@@ -25,42 +25,42 @@ public class TestController {
 
 
     @GetMapping
-    public ResponseEntity<List<TestDTOs>> getAll() {
+    public ResponseEntity<Map<Integer, List<TestDTO>>> getAll() {
         log.info("TestController, getAll");
-        List<TestDTOs> languageDTOList = testService.getAll();
-        return new ResponseEntity<>(languageDTOList, HttpStatus.OK);
+        Map<Integer, List<TestDTO>> testDTOMap = testService.getAll();
+        return new ResponseEntity<>(testDTOMap, HttpStatus.OK);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<TestDTOs> getById(@PathVariable int id) {
+    public ResponseEntity<List<TestDTO>> getById(@PathVariable int id) {
         log.info("TestController, getById");
-        TestDTOs testDTOs = testService.getById(id);
-        return new ResponseEntity<>(testDTOs, HttpStatus.OK);
+        List<TestDTO> testDTOList = testService.getById(id);
+        return new ResponseEntity<>(testDTOList, HttpStatus.OK);
     }
 
     @GetMapping(value = "/{testName}")
-    public ResponseEntity<TestDTOs> getByName(@PathVariable String testName) {
+    public ResponseEntity<List<TestDTO>> getByName(@PathVariable String testName) {
         log.info("TestController, getByName");
-        TestDTOs testDTOs = testService.getByName(testName);
-        return new ResponseEntity<>(testDTOs, HttpStatus.OK);
+        List<TestDTO> testDTOList = testService.getByName(testName);
+        return new ResponseEntity<>(testDTOList, HttpStatus.OK);
     }
     @PostMapping
-    public ResponseEntity<TestDTOs> create(@RequestBody TestDTOs testDTOs) {
+    public ResponseEntity<List<TestDTO>> create(@RequestBody List<TestDTO> testDTOList) {
         log.info("TestController, create");
-        TestDTOs testDTOsNew = testService.create(testDTOs);
+        List<TestDTO> testDTOsNew = testService.create(testDTOList);
         return new ResponseEntity<>(testDTOsNew, HttpStatus.CREATED);
     }
 
     @PutMapping
-    public ResponseEntity<TestDTOs> update(@RequestBody TestDTOs testDTOs) {
+    public ResponseEntity<List<TestDTO>> update(@RequestBody List<TestDTO> testDTOList) {
         log.info("TestController, update");
-        TestDTOs testDTOsNew = testService.update(testDTOs);
-        return new ResponseEntity<>(testDTOsNew, HttpStatus.OK);
+        List<TestDTO> testDTONew = testService.update(testDTOList);
+        return new ResponseEntity<>(testDTONew, HttpStatus.OK);
     }
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity  delete(@PathVariable int id) {
+    public ResponseEntity  deleteById(@PathVariable int id) {
         log.info("TestController, delete");
-        testService.delete(id);
+        testService.deleteById(id);
         return ResponseEntity.ok("Test is deleted");
     }
 

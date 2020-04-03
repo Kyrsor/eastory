@@ -6,4 +6,11 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TopicRepository extends JpaRepository<Topic, Integer> {
+
+    Topic findTopicByTopicText(String topicText);
+
+    void deleteById(int id);
+
+    void deleteByTopicText(String topicText);
+
 }
