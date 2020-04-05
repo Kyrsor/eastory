@@ -10,31 +10,31 @@ import java.sql.Blob;
 @Slf4j
 @Component
 public class QuestionConverter {
-    public QuestionDTO convertToDTO(Question question){
+    public QuestionDTO convertToDTO(Question question) {
 
         log.info("QuestionConverter, convertToDTO");
 
-        int id=question.getId();
+        int id = question.getId();
 
-        String questionText=question.getQuestionText();
+        String questionText = question.getQuestionText();
 
-        String answer1=question.getAnswer1();
+        String answer1 = question.getAnswer1();
 
-        String answer2=question.getAnswer2();
+        String answer2 = question.getAnswer2();
 
-        String answer3=question.getAnswer3();
+        String answer3 = question.getAnswer3();
 
-        String answer4=question.getAnswer4();
+        String answer4 = question.getAnswer4();
 
-        int rightAnswer=question.getRightAnswer();
+        int rightAnswer = question.getRightAnswer();
 
-        Blob image=question.getImage();
+        Blob image = question.getImage();
 
-        String description=question.getDescription();
+        String description = question.getDescription();
 
-        int languageId=question.getLanguageId();
+        int languageId = question.getLanguageId();
 
-        QuestionDTO questionDTO=new QuestionDTO();
+        QuestionDTO questionDTO = new QuestionDTO();
 
         questionDTO.setId(id);
 
@@ -60,31 +60,31 @@ public class QuestionConverter {
 
     }
 
-    public Question convertToEntity(QuestionDTO questionDTO){
+    public Question convertToEntity(QuestionDTO questionDTO) {
 
         log.info("QuestionConverter, convertToEntity");
 
-        int id=questionDTO.getId();
+        int id = questionDTO.getId();
 
-        String questionText=questionDTO.getQuestionText();
+        String questionText = questionDTO.getQuestionText();
 
-        String answer1=questionDTO.getAnswer1();
+        String answer1 = questionDTO.getAnswer1();
 
-        String answer2=questionDTO.getAnswer2();
+        String answer2 = questionDTO.getAnswer2();
 
-        String answer3=questionDTO.getAnswer3();
+        String answer3 = questionDTO.getAnswer3();
 
-        String answer4=questionDTO.getAnswer4();
+        String answer4 = questionDTO.getAnswer4();
 
-        int rightAnswer=questionDTO.getRightAnswer();
+        int rightAnswer = questionDTO.getRightAnswer();
 
-        Blob image=questionDTO.getImage();
+        Blob image = questionDTO.getImage();
 
-        String description=questionDTO.getDescription();
+        String description = questionDTO.getDescription();
 
-        int languageId=questionDTO.getLanguageId();
+        int languageId = questionDTO.getLanguageId();
 
-        Question question=new Question();
+        Question question = new Question();
 
         question.setId(id);
 

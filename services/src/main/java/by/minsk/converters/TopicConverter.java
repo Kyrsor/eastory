@@ -8,15 +8,15 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 public class TopicConverter {
-    public TopicDTO convertToDTO(Topic topic){
+    public TopicDTO convertToDTO(Topic topic) {
 
         log.info("TopicConverter, convertToDTO");
 
-        int id=topic.getId();
+        int id = topic.getId();
 
-        String topicText=topic.getTopicText();
+        String topicText = topic.getTopicText();
 
-        TopicDTO topicDTO=new TopicDTO();
+        TopicDTO topicDTO = new TopicDTO();
 
         topicDTO.setId(id);
 
@@ -26,15 +26,15 @@ public class TopicConverter {
 
     }
 
-    public Topic convertToEntity(TopicDTO topicDTO){
+    public Topic convertToEntity(TopicDTO topicDTO) {
 
         log.info("TopicConverter, convertToDTO");
 
-        int id=topicDTO.getId();
+        int id = topicDTO.getId();
 
-        String topicText=topicDTO.getTopicText();
+        String topicText = topicDTO.getTopicText();
 
-        Topic topic=new Topic();
+        Topic topic = new Topic();
 
         topic.setId(id);
 

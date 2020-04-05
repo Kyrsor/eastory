@@ -1,7 +1,6 @@
 package by.minsk.entity;
 
 import lombok.Data;
-import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.sql.Blob;

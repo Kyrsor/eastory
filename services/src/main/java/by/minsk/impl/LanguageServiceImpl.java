@@ -30,6 +30,7 @@ public class LanguageServiceImpl implements LanguageService {
 
     }
 
+    @Override
     public LanguageDTO getById(int id) {
 
         log.info("LanguageServiceImpl, getById");
@@ -46,6 +47,7 @@ public class LanguageServiceImpl implements LanguageService {
 
     }
 
+    @Override
     public List<LanguageDTO> getAll() {
 
         log.info("LanguageServiceImpl, getAll");
@@ -57,40 +59,27 @@ public class LanguageServiceImpl implements LanguageService {
 
     }
 
-    public LanguageDTO getByName(String languageText) {
-
-        log.info("LanguageServiceImpl, getByName");
-
-        Language language=languageRepository.findLanguageByLanguageText(languageText);
-
-        if(language==null){
-
-            throw new EntityNotFoundException("Cannot find language by this parameter");
-        }
-
-        return languageConverter.convertToDTO(language);
-
-    }
-
+    @Override
     public LanguageDTO create(LanguageDTO languageDTO) {
 
         log.info("LanguageServiceImpl, create");
 
-        Language language=languageConverter.convertToEntity(languageDTO);
+        Language language = languageConverter.convertToEntity(languageDTO);
 
-        language=languageRepository.save(language);
+        language = languageRepository.save(language);
 
         return languageConverter.convertToDTO(language);
 
     }
 
+    @Override
     public LanguageDTO update(LanguageDTO languageDTO) {
 
         log.info("LanguageServiceImpl, update");
 
-        Language language=languageRepository.findOne(languageDTO.getId());
+        Language language = languageRepository.findOne(languageDTO.getId());
 
-        if(language==null){
+        if (language == null) {
 
             throw new EntityNotFoundException("No such language to update");
 
@@ -98,7 +87,7 @@ public class LanguageServiceImpl implements LanguageService {
 
         language.setLanguageText(languageDTO.getLanguageText());
 
-        language=languageRepository.save(language);
+        language = languageRepository.save(language);
 
         return languageConverter.convertToDTO(language);
 
@@ -113,12 +102,5 @@ public class LanguageServiceImpl implements LanguageService {
 
     }
 
-    @Override
-    public void deleteByLanguageText(String languageText) {
 
-        log.info("LanguageServiceImpl, deleteByLanguageText");
-
-        languageRepository.deleteByLanguageText(languageText);
-
-    }
 }

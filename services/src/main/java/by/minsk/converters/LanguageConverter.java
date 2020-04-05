@@ -12,11 +12,11 @@ public class LanguageConverter {
 
         log.info("LanguageConverter, convertToDTO");
 
-        int id=language.getId();
+        int id = language.getId();
 
-        String locale=language.getLanguageText();
+        String locale = language.getLanguageText();
 
-        LanguageDTO languageDTO=new LanguageDTO();
+        LanguageDTO languageDTO = new LanguageDTO();
 
         languageDTO.setId(id);
 
@@ -30,11 +30,11 @@ public class LanguageConverter {
 
         log.info("LanguageConverter, convertToEntity");
 
-        int id=languageDTO.getId();
+        int id = languageDTO.getId();
 
-        String locale=languageDTO.getLanguageText();
+        String locale = languageDTO.getLanguageText();
 
-        Language language=new Language();
+        Language language = new Language();
 
         language.setId(id);
 

@@ -52,6 +52,7 @@ public class QuestionController {
         QuestionDTO questionDTONew = questionService.update(questionDTO);
         return new ResponseEntity<>(questionDTONew, HttpStatus.OK);
     }
+
     @DeleteMapping(value = "/{id}")
     public ResponseEntity deleteById(@PathVariable int id) {
         log.info("QuestionController, delete");

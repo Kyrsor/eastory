@@ -8,8 +8,6 @@ public interface QuestionService {
 
     List<QuestionDTO> getAll();
 
-    List<QuestionDTO> getAllByLanguageId(int id);
-
     QuestionDTO getById(int id);
 
     QuestionDTO create(QuestionDTO questionDTO);

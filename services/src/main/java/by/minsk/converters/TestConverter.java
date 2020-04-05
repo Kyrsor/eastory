@@ -8,15 +8,15 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 public class TestConverter {
-    public TestDTO convertToDTO(Test test){
+    public TestDTO convertToDTO(Test test) {
 
         log.info("TestConverter, convertToDTO");
 
-        int topicId=test.getTopicId();
+        int topicId = test.getTopicId();
 
-        int questionId=test.getQuestionId();
+        int questionId = test.getQuestionId();
 
-        TestDTO testDTO=new TestDTO();
+        TestDTO testDTO = new TestDTO();
 
         testDTO.setTopicId(topicId);
 
@@ -26,15 +26,15 @@ public class TestConverter {
 
     }
 
-    public Test convertToEntity(TestDTO testDTO){
+    public Test convertToEntity(TestDTO testDTO) {
 
         log.info("TestConverter, convertToEntity");
 
-        int topicId=testDTO.getTopicId();
+        int topicId = testDTO.getTopicId();
 
-        int questionId=testDTO.getQuestionId();
+        int questionId = testDTO.getQuestionId();
 
-        Test test=new Test();
+        Test test = new Test();
 
         test.setTopicId(topicId);
 

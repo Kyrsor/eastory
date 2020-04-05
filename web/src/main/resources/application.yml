@@ -1,17 +1,12 @@
-
 spring:
-    # Database
-    datasource:
-        driver-class-name: com.mysql.jdbc.Driver
-        url: jdbc:mysql://localhost:3306/eastory?useSSL=false
-        username: root
-        password: root
-    # JPA properties
-    jpa:
-        hibernate:
-            ddl-auto: update
-            show-sql: true
-            database: mysql
-            open-in-view: false
-            generate-ddl: false
-        properties.hibernate.temp.use_jdbc_metadata_defaults: false
+  # Database
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/eastory?useSSL=false
+    username: root
+    password: root
+  # JPA properties
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties.hibernate.temp.use_jdbc_metadata_defaults: false

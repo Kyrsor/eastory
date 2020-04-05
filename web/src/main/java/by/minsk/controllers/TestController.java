@@ -46,6 +46,7 @@ public class TestController {
         List<TestDTO> testDTOList = testService.getByName(testName);
         return new ResponseEntity<>(testDTOList, HttpStatus.OK);
     }
+
     @PostMapping
     public ResponseEntity<List<TestDTO>> create(@RequestBody List<TestDTO> testDTOList) {
         log.info("TestController, create");
@@ -59,8 +60,9 @@ public class TestController {
         List<TestDTO> testDTONew = testService.update(testDTOList);
         return new ResponseEntity<>(testDTONew, HttpStatus.OK);
     }
+
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity  deleteById(@PathVariable int id) {
+    public ResponseEntity deleteById(@PathVariable int id) {
         log.info("TestController, delete");
         testService.deleteById(id);
         return ResponseEntity.ok("Test is deleted");

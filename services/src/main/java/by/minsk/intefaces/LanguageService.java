@@ -10,15 +10,11 @@ public interface LanguageService {
 
     List<LanguageDTO> getAll();
 
-    LanguageDTO getByName(String languageText);
-
     LanguageDTO create(LanguageDTO languageDTO);
 
     LanguageDTO update(LanguageDTO languageDTO);
 
     void deleteById(int id);
-
-    void deleteByLanguageText(String languageText);
 
 
 }

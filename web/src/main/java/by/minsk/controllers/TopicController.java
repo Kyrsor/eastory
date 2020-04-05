@@ -58,6 +58,7 @@ public class TopicController {
         TopicDTO topicDTONew = topicService.update(topicDTO);
         return new ResponseEntity<>(topicDTONew, HttpStatus.OK);
     }
+
     @DeleteMapping(value = "/{id}")
     public ResponseEntity deleteById(@PathVariable int id) {
         log.info("TopicController, delete");
