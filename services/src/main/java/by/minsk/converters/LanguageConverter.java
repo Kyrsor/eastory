@@ -3,8 +3,10 @@ package by.minsk.converters;
 import by.minsk.dto.LanguageDTO;
 import by.minsk.entity.Language;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 @Slf4j
+@Component
 public class LanguageConverter {
     public LanguageDTO convertToDTO(Language language) {
 

@@ -3,8 +3,10 @@ package by.minsk.converters;
 import by.minsk.dto.TopicDTO;
 import by.minsk.entity.Topic;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 @Slf4j
+@Component
 public class TopicConverter {
     public TopicDTO convertToDTO(Topic topic){
 

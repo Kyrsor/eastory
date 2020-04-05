@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Table(name = "tests")
 public class Test {
 
+    @Id
     @Column(name = "topic_id")
     int topicId;
 

@@ -3,10 +3,12 @@ package by.minsk.converters;
 import by.minsk.dto.QuestionDTO;
 import by.minsk.entity.Question;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 import java.sql.Blob;
 
 @Slf4j
+@Component
 public class QuestionConverter {
     public QuestionDTO convertToDTO(Question question){
 

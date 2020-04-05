@@ -31,12 +31,6 @@ public class QuestionController {
         return new ResponseEntity<>(cityDTOList, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/{id}")
-    public ResponseEntity<List<QuestionDTO>> getAllByLanguageId(@PathVariable int id) {
-        log.info("QuestionController, getAllByLanguageId");
-        List<QuestionDTO> cityDTOList = questionService.getAllByLanguageId(id);
-        return new ResponseEntity<>(cityDTOList, HttpStatus.OK);
-    }
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<QuestionDTO> getById(@PathVariable int id) {

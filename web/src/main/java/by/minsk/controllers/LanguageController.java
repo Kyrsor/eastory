@@ -38,12 +38,6 @@ public class LanguageController {
         return new ResponseEntity<>(languageDTO, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/{languageText}")
-    public ResponseEntity<LanguageDTO> getByName(@PathVariable String languageText) {
-        log.info("LanguageController, getByName");
-        LanguageDTO languageDTO = languageService.getByName(languageText);
-        return new ResponseEntity<>(languageDTO, HttpStatus.OK);
-    }
     @PostMapping
     public ResponseEntity<LanguageDTO> create(@RequestBody LanguageDTO languageDTO) {
         log.info("LanguageController, create");
@@ -64,11 +58,6 @@ public class LanguageController {
         return ResponseEntity.ok("Language is deleted");
     }
 
-    @DeleteMapping(value = "/{languageText}")
-    public ResponseEntity  deleteByLanguageText(@PathVariable String languageText) {
-        log.info("LanguageController, deleteByLanguageText");
-        languageService.deleteByLanguageText(languageText);
-        return ResponseEntity.ok("Language is deleted");
-    }
+
 
 }
