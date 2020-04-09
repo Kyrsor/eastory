@@ -15,6 +15,6 @@ In this repository we will develop our back-end of the project Eastory
 
 5. После проверьте в файле application.yml что бы правильно были указаны данные User и Password.
 
-6. Выполните sql скрипты для создания БД и ее заполнения исходными данными.
+6. Выполните sql скрипты для создания БД и ее заполнения исходными данными находящиеся по пути: eastory/web/src/main/resources/db.
 
 7. После этого можно успешно запускать проект
