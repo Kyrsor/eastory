@@ -7,15 +7,15 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "topics")
+@Table(name = "topics", schema = "eastory")
 public class Topic {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @Column(name = "topic")
-    String topicText;
+    private String topicText;
 
 }

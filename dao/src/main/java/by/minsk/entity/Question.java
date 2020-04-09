@@ -3,44 +3,44 @@ package by.minsk.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.sql.Blob;
 
 
 @Data
 @Entity
-@Table(name = "questions")
+@Table(name = "questions", schema = "eastory")
 public class Question {
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int id;
+    private Integer id;
 
     @Column(name = "question")
-    String questionText;
+    private String questionText;
 
     @Column(name = "answer_1")
-    String answer1;
+    private String answer1;
 
     @Column(name = "answer_2")
-    String answer2;
+    private String answer2;
 
     @Column(name = "answer_3")
-    String answer3;
+    private String answer3;
 
     @Column(name = "answer_4")
-    String answer4;
+    private String answer4;
 
     @Column(name = "right_answer")
-    int rightAnswer;
+    private Integer rightAnswer;
 
     @Column(name = "image")
-    Blob image;
+
+    private byte[] image;
 
     @Column(name = "description")
-    String description;
+    private String description;
 
     @Column(name = "language_id")
-    int languageId;
+    private Integer languageId;
 
 }

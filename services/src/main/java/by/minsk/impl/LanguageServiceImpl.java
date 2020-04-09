@@ -18,22 +18,18 @@ import java.util.stream.Collectors;
 public class LanguageServiceImpl implements LanguageService {
 
     private LanguageConverter languageConverter;
-
     private LanguageRepository languageRepository;
 
     @Autowired
     public LanguageServiceImpl(LanguageConverter languageConverter, LanguageRepository languageRepository) {
-
         this.languageConverter = languageConverter;
-
         this.languageRepository = languageRepository;
-
     }
 
     @Override
-    public LanguageDTO getById(int id) {
+    public LanguageDTO findById(Integer id) {
 
-        log.info("LanguageServiceImpl, getById");
+        log.info("LanguageServiceImpl, findById");
 
         Language language = languageRepository.findOne(id);
 
@@ -44,19 +40,17 @@ public class LanguageServiceImpl implements LanguageService {
         }
 
         return languageConverter.convertToDTO(language);
-
     }
 
     @Override
-    public List<LanguageDTO> getAll() {
+    public List<LanguageDTO> findAll() {
 
-        log.info("LanguageServiceImpl, getAll");
+        log.info("LanguageServiceImpl, findAll");
 
         return languageRepository.findAll()
                                  .stream()
                                  .map(languageConverter::convertToDTO)
                                  .collect(Collectors.toList());
-
     }
 
     @Override
@@ -69,7 +63,6 @@ public class LanguageServiceImpl implements LanguageService {
         language = languageRepository.save(language);
 
         return languageConverter.convertToDTO(language);
-
     }
 
     @Override
@@ -90,17 +83,19 @@ public class LanguageServiceImpl implements LanguageService {
         language = languageRepository.save(language);
 
         return languageConverter.convertToDTO(language);
-
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(Integer id) {
 
         log.info("LanguageServiceImpl, deleteById");
 
+        Language language = languageRepository.findOne(id);
+
+        if (language == null) {
+            throw new EntityNotFoundException("No such language to delete");
+        }
+
         languageRepository.deleteById(id);
-
     }
-
-
 }

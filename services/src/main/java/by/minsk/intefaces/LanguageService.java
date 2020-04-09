@@ -6,15 +6,14 @@ import java.util.List;
 
 public interface LanguageService {
 
-    LanguageDTO getById(int id);
+    LanguageDTO findById(Integer id);
 
-    List<LanguageDTO> getAll();
+    List<LanguageDTO> findAll();
 
     LanguageDTO create(LanguageDTO languageDTO);
 
     LanguageDTO update(LanguageDTO languageDTO);
 
-    void deleteById(int id);
-
+    void deleteById(Integer id);
 
 }

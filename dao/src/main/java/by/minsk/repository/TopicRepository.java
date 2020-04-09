@@ -4,13 +4,11 @@ import by.minsk.entity.Topic;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
+
 @Repository
 public interface TopicRepository extends JpaRepository<Topic, Integer> {
-
-    Topic findTopicByTopicText(String topicText);
-
-    void deleteById(int id);
-
-    void deleteByTopicText(String topicText);
+    @Transactional
+    void deleteById(Integer id);
 
 }

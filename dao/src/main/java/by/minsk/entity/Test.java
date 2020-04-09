@@ -2,22 +2,22 @@ package by.minsk.entity;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 @Data
 @Entity
-@Table(name = "tests")
+@Table(name = "tests", schema = "eastory")
 public class Test {
-
     @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+
     @Column(name = "topic_id")
-    int topicId;
+    private Integer topicId;
 
     @Column(name = "question_id")
-    int questionId;
+    private Integer questionId;
 
 }

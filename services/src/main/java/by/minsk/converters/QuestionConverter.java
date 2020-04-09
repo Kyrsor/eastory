@@ -5,8 +5,6 @@ import by.minsk.entity.Question;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import java.sql.Blob;
-
 @Slf4j
 @Component
 public class QuestionConverter {
@@ -14,7 +12,7 @@ public class QuestionConverter {
 
         log.info("QuestionConverter, convertToDTO");
 
-        int id = question.getId();
+        Integer id = question.getId();
 
         String questionText = question.getQuestionText();
 
@@ -26,13 +24,13 @@ public class QuestionConverter {
 
         String answer4 = question.getAnswer4();
 
-        int rightAnswer = question.getRightAnswer();
+        Integer rightAnswer = question.getRightAnswer();
 
-        Blob image = question.getImage();
+        byte[] image = question.getImage();
 
         String description = question.getDescription();
 
-        int languageId = question.getLanguageId();
+        Integer languageId = question.getLanguageId();
 
         QuestionDTO questionDTO = new QuestionDTO();
 
@@ -64,7 +62,7 @@ public class QuestionConverter {
 
         log.info("QuestionConverter, convertToEntity");
 
-        int id = questionDTO.getId();
+        Integer id = questionDTO.getId();
 
         String questionText = questionDTO.getQuestionText();
 
@@ -76,13 +74,13 @@ public class QuestionConverter {
 
         String answer4 = questionDTO.getAnswer4();
 
-        int rightAnswer = questionDTO.getRightAnswer();
+        Integer rightAnswer = questionDTO.getRightAnswer();
 
-        Blob image = questionDTO.getImage();
+        byte[] image = questionDTO.getImage();
 
         String description = questionDTO.getDescription();
 
-        int languageId = questionDTO.getLanguageId();
+        Integer languageId = questionDTO.getLanguageId();
 
         Question question = new Question();
 

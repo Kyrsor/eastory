@@ -28,9 +28,9 @@ public class TestServiceImpl implements TestService {
     }
 
     @Override
-    public Map<Integer, List<TestDTO>> getAll() {
+    public Map<Integer, List<TestDTO>> findAll() {
 
-        log.info("TestServiceImpl, getAll");
+        log.info("TestServiceImpl, findAll");
 
         return testRepository.findAll()
                              .stream()
@@ -40,9 +40,9 @@ public class TestServiceImpl implements TestService {
     }
 
     @Override
-    public List<TestDTO> getById(int id) {
+    public List<TestDTO> findById(Integer id) {
 
-        log.info("TestServiceImpl, getById");
+        log.info("TestServiceImpl, findById");
 
         return testRepository.findAllByTopicId(id)
                              .stream()
@@ -51,12 +51,12 @@ public class TestServiceImpl implements TestService {
 
     }
 
-    @Override
-    public List<TestDTO> getByName(String testName) {
-        log.info("TestServiceImpl, getByName");
-        return null;
-    }
-
+    /* @Override
+     public List<TestDTO> findByName(String testName) {
+         log.info("TestServiceImpl, findByName");
+         return null;
+     }
+ */
     @Override
     public List<TestDTO> create(List<TestDTO> testDTOList) {
         log.info("TestServiceImpl, create");
@@ -64,8 +64,7 @@ public class TestServiceImpl implements TestService {
         for (TestDTO testDTO : testDTOList) {
             testList.add(testConverter.convertToEntity(testDTO));
         }
-
-        testRepository.save(testList);
+        testList = testRepository.save(testList);
 
         testDTOList = new ArrayList<>();
         for (Test test : testList) {
@@ -82,11 +81,9 @@ public class TestServiceImpl implements TestService {
     }
 
     @Override
-    public void deleteById(int id) {
-        log.info("TestServiceImpl, delete");
+    public void deleteById(Integer id) {
+        log.info("TestServiceImpl, deleteById");
 
         testRepository.deleteAllByTopicId(id);
-
-
     }
 }

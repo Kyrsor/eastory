@@ -27,8 +27,8 @@ public class TopicServiceImpl implements TopicService {
     }
 
     @Override
-    public List<TopicDTO> getAll() {
-        log.info("TopicServiceImpl, getAll");
+    public List<TopicDTO> findAll() {
+        log.info("TopicServiceImpl, findAll");
         return topicRepository.findAll()
                               .stream()
                               .map(topicConverter::convertToDTO)
@@ -37,8 +37,8 @@ public class TopicServiceImpl implements TopicService {
     }
 
     @Override
-    public TopicDTO getById(int id) {
-        log.info("TopicServiceImpl, getById");
+    public TopicDTO findById(Integer id) {
+        log.info("TopicServiceImpl, findById");
 
         Topic topic = topicRepository.findOne(id);
 
@@ -52,9 +52,9 @@ public class TopicServiceImpl implements TopicService {
 
     }
 
-    @Override
-    public TopicDTO getByName(String topicText) {
-        log.info("TopicServiceImpl, getByName");
+    /*@Override
+    public TopicDTO findByName(String topicText) {
+        log.info("TopicServiceImpl, findByName");
         Topic topic = topicRepository.findTopicByTopicText(topicText);
 
         if (topic == null) {
@@ -64,7 +64,7 @@ public class TopicServiceImpl implements TopicService {
 
         return topicConverter.convertToDTO(topic);
 
-    }
+    }*/
 
     @Override
     public TopicDTO create(TopicDTO topicDTO) {
@@ -95,18 +95,18 @@ public class TopicServiceImpl implements TopicService {
     }
 
     @Override
-    public void deleteById(int id) {
-        log.info("TopicServiceImpl, delete");
+    public void deleteById(Integer id) {
+        log.info("TopicServiceImpl, deleteById");
 
         topicRepository.deleteById(id);
 
     }
 
-    @Override
+    /*@Override
     public void deleteByTopicText(String topicText) {
         log.info("TopicServiceImpl, delete");
 
         topicRepository.deleteByTopicText(topicText);
 
-    }
+    }*/
 }

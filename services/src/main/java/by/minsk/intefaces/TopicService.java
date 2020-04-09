@@ -6,17 +6,13 @@ import java.util.List;
 
 public interface TopicService {
 
-    List<TopicDTO> getAll();
+    List<TopicDTO> findAll();
 
-    TopicDTO getById(int id);
-
-    TopicDTO getByName(String topicText);
+    TopicDTO findById(Integer id);
 
     TopicDTO create(TopicDTO topicDTO);
 
     TopicDTO update(TopicDTO topicDTO);
 
-    void deleteById(int id);
-
-    void deleteByTopicText(String topicText);
+    void deleteById(Integer id);
 }

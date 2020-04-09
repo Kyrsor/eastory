@@ -6,14 +6,16 @@ import java.util.List;
 
 public interface QuestionService {
 
-    List<QuestionDTO> getAll();
+    List<QuestionDTO> findAll();
 
-    QuestionDTO getById(int id);
+    QuestionDTO findById(Integer id);
+
+    List<QuestionDTO> findByLanguageId(Integer id);
 
     QuestionDTO create(QuestionDTO questionDTO);
 
     QuestionDTO update(QuestionDTO questionDTO);
 
-    void deleteById(int id);
+    void deleteById(Integer id);
 
 }

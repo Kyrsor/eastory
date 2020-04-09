@@ -11,13 +11,14 @@ public class TestConverter {
     public TestDTO convertToDTO(Test test) {
 
         log.info("TestConverter, convertToDTO");
+        Integer id = test.getId();
 
-        int topicId = test.getTopicId();
+        Integer topicId = test.getTopicId();
 
-        int questionId = test.getQuestionId();
+        Integer questionId = test.getQuestionId();
 
         TestDTO testDTO = new TestDTO();
-
+        testDTO.setId(id);
         testDTO.setTopicId(topicId);
 
         testDTO.setQuestionId(questionId);
@@ -29,12 +30,15 @@ public class TestConverter {
     public Test convertToEntity(TestDTO testDTO) {
 
         log.info("TestConverter, convertToEntity");
+        Integer id = testDTO.getId();
 
-        int topicId = testDTO.getTopicId();
+        Integer topicId = testDTO.getTopicId();
 
-        int questionId = testDTO.getQuestionId();
+        Integer questionId = testDTO.getQuestionId();
 
         Test test = new Test();
+
+        test.setId(id);
 
         test.setTopicId(topicId);
 

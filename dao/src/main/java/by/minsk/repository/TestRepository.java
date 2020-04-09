@@ -9,10 +9,9 @@ import java.util.List;
 @Repository
 public interface TestRepository extends JpaRepository<Test, Integer> {
 
-    List<Test> findAllByTopicId(int id);
+    List<Test> findAllByTopicId(Integer id);
 
-
-    void deleteAllByTopicId(int id);
+    void deleteAllByTopicId(Integer id);
 
 
 }

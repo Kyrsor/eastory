@@ -2,29 +2,27 @@ package by.minsk.dto;
 
 import lombok.Data;
 
-import java.sql.Blob;
-
 @Data
 public class QuestionDTO {
 
-    int id;
+    private Integer id;
 
-    String questionText;
+    private String questionText;
 
-    String answer1;
+    private String answer1;
 
-    String answer2;
+    private String answer2;
 
-    String answer3;
+    private String answer3;
 
-    String answer4;
+    private String answer4;
 
-    int rightAnswer;
+    private Integer rightAnswer;
 
-    Blob image;
+    private byte[] image;
 
-    String description;
+    private String description;
 
-    int languageId;
+    private Integer languageId;
 
 }

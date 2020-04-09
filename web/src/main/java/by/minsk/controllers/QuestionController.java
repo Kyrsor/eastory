@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Slf4j
@@ -25,37 +26,41 @@ public class QuestionController {
     }
 
     @GetMapping
-    public ResponseEntity<List<QuestionDTO>> getAll() {
-        log.info("QuestionController, getAll");
-        List<QuestionDTO> cityDTOList = questionService.getAll();
-        return new ResponseEntity<>(cityDTOList, HttpStatus.OK);
+    public ResponseEntity<List<QuestionDTO>> findAll() {
+        log.info("QuestionController, findAll");
+        return new ResponseEntity<>(questionService.findAll(), HttpStatus.OK);
     }
 
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<QuestionDTO> getById(@PathVariable int id) {
-        log.info("QuestionController, getById");
-        QuestionDTO questionDTO = questionService.getById(id);
-        return new ResponseEntity<>(questionDTO, HttpStatus.OK);
+    public ResponseEntity<QuestionDTO> findById(@PathVariable Integer id) {
+        log.info("QuestionController, findById");
+
+        return new ResponseEntity<>(questionService.findById(id), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/findByLanguageId/{id}")
+    public ResponseEntity<List<QuestionDTO>> findByLanguageId(@PathVariable Integer id) {
+        log.info("QuestionController, findByLanguageId");
+
+        return new ResponseEntity<>(questionService.findByLanguageId(id), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<QuestionDTO> create(@RequestBody QuestionDTO questionDTO) {
+    public ResponseEntity<QuestionDTO> create(@RequestBody @Valid QuestionDTO questionDTO) {
         log.info("QuestionController, create");
-        QuestionDTO questionDTONew = questionService.create(questionDTO);
-        return new ResponseEntity<>(questionDTONew, HttpStatus.CREATED);
+        return new ResponseEntity<>(questionService.create(questionDTO), HttpStatus.CREATED);
     }
 
     @PutMapping
-    public ResponseEntity<QuestionDTO> update(@RequestBody QuestionDTO questionDTO) {
+    public ResponseEntity<QuestionDTO> update(@RequestBody @Valid QuestionDTO questionDTO) {
         log.info("QuestionController, update");
-        QuestionDTO questionDTONew = questionService.update(questionDTO);
-        return new ResponseEntity<>(questionDTONew, HttpStatus.OK);
+        return new ResponseEntity<>(questionService.update(questionDTO), HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity deleteById(@PathVariable int id) {
-        log.info("QuestionController, delete");
+    public ResponseEntity deleteById(@PathVariable Integer id) {
+        log.info("QuestionController, deleteById");
         questionService.deleteById(id);
         return ResponseEntity.ok("Question is deleted");
     }

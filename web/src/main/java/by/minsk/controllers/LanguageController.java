@@ -25,35 +25,31 @@ public class LanguageController {
     }
 
     @GetMapping
-    public ResponseEntity<List<LanguageDTO>> getAll() {
-        log.info("LanguageController, getAll");
-        List<LanguageDTO> languageDTOList = languageService.getAll();
-        return new ResponseEntity<>(languageDTOList, HttpStatus.OK);
+    public ResponseEntity<List<LanguageDTO>> findAll() {
+        log.info("LanguageController, findAll");
+        return new ResponseEntity<>(languageService.findAll(), HttpStatus.OK);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<LanguageDTO> getById(@PathVariable int id) {
-        log.info("LanguageController, getById");
-        LanguageDTO languageDTO = languageService.getById(id);
-        return new ResponseEntity<>(languageDTO, HttpStatus.OK);
+    public ResponseEntity<LanguageDTO> findById(@PathVariable Integer id) {
+        log.info("LanguageController, findById");
+        return new ResponseEntity<>(languageService.findById(id), HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<LanguageDTO> create(@RequestBody LanguageDTO languageDTO) {
         log.info("LanguageController, create");
-        LanguageDTO languageDTONew = languageService.create(languageDTO);
-        return new ResponseEntity<>(languageDTONew, HttpStatus.CREATED);
+        return new ResponseEntity<>(languageService.create(languageDTO), HttpStatus.CREATED);
     }
 
     @PutMapping
     public ResponseEntity<LanguageDTO> update(@RequestBody LanguageDTO languageDTO) {
         log.info("LanguageController, update");
-        LanguageDTO languageDTONew = languageService.update(languageDTO);
-        return new ResponseEntity<>(languageDTONew, HttpStatus.OK);
+        return new ResponseEntity<>(languageService.update(languageDTO), HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity deleteById(@PathVariable int id) {
+    public ResponseEntity deleteById(@PathVariable Integer id) {
         log.info("LanguageController, deleteById");
         languageService.deleteById(id);
         return ResponseEntity.ok("Language is deleted");

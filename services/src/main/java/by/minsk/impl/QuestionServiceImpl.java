@@ -1,6 +1,7 @@
 package by.minsk.impl;
 
 import by.minsk.converters.QuestionConverter;
+import by.minsk.dto.LanguageDTO;
 import by.minsk.dto.QuestionDTO;
 import by.minsk.entity.Question;
 import by.minsk.intefaces.QuestionService;
@@ -19,17 +20,21 @@ public class QuestionServiceImpl implements QuestionService {
 
     private QuestionRepository questionRepository;
     private QuestionConverter questionConverter;
+    private LanguageServiceImpl languageService;
 
-    @Autowired
-    public QuestionServiceImpl(QuestionRepository questionRepository, QuestionConverter questionConverter) {
+    public QuestionServiceImpl(QuestionRepository questionRepository, QuestionConverter questionConverter, LanguageServiceImpl languageService) {
         this.questionRepository = questionRepository;
         this.questionConverter = questionConverter;
+        this.languageService = languageService;
     }
 
-    @Override
-    public List<QuestionDTO> getAll() {
+    @Autowired
 
-        log.info("QuestionServiceImpl, getAll");
+
+    @Override
+    public List<QuestionDTO> findAll() {
+
+        log.info("QuestionServiceImpl, findAll");
 
         return questionRepository.findAll()
                                  .stream()
@@ -40,9 +45,9 @@ public class QuestionServiceImpl implements QuestionService {
 
 
     @Override
-    public QuestionDTO getById(int id) {
+    public QuestionDTO findById(Integer id) {
 
-        log.info("QuestionServiceImpl, getById");
+        log.info("QuestionServiceImpl, findById");
 
         Question question = questionRepository.findOne(id);
 
@@ -53,6 +58,19 @@ public class QuestionServiceImpl implements QuestionService {
         }
 
         return questionConverter.convertToDTO(question);
+
+    }
+
+    @Override
+    public List<QuestionDTO> findByLanguageId(Integer id) {
+        log.info("QuestionServiceImpl, findByLanguageId");
+        LanguageDTO languageDTO = languageService.findById(id);
+
+        return questionRepository.findAllByLanguageId(languageDTO.getId())
+                                 .stream()
+                                 .map(questionConverter::convertToDTO)
+                                 .collect(Collectors.toList());
+
 
     }
 
@@ -107,10 +125,16 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(Integer id) {
 
         log.info("QuestionServiceImpl, delete");
 
+        Question question = questionRepository.findOne(id);
+
+        if (question == null) {
+            throw new EntityNotFoundException("No such question to delete");
+
+        }
         questionRepository.delete(id);
 
     }

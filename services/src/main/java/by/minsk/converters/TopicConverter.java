@@ -12,7 +12,7 @@ public class TopicConverter {
 
         log.info("TopicConverter, convertToDTO");
 
-        int id = topic.getId();
+        Integer id = topic.getId();
 
         String topicText = topic.getTopicText();
 
@@ -30,7 +30,7 @@ public class TopicConverter {
 
         log.info("TopicConverter, convertToDTO");
 
-        int id = topicDTO.getId();
+        Integer id = topicDTO.getId();
 
         String topicText = topicDTO.getTopicText();
 

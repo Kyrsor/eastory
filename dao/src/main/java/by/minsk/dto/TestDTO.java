@@ -6,8 +6,10 @@ import lombok.Data;
 @Data
 public class TestDTO {
 
-    int topicId;
+    private Integer id;
 
-    int questionId;
+    private Integer topicId;
+
+    private Integer questionId;
 
 }

@@ -7,16 +7,13 @@ import java.util.Map;
 
 public interface TestService {
 
-    Map<Integer, List<TestDTO>> getAll();
+    Map<Integer, List<TestDTO>> findAll();
 
-    List<TestDTO> getById(int id);
-
-    List<TestDTO> getByName(String testName);
+    List<TestDTO> findById(Integer id);
 
     List<TestDTO> create(List<TestDTO> testDTOList);
 
     List<TestDTO> update(List<TestDTO> testDTOList);
 
-    void deleteById(int id);
-
+    void deleteById(Integer id);
 }
