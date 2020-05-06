@@ -1,4 +1,6 @@
-create schema if not exists eastory collate utf8mb4_0900_ai_ci;
+create database eastory;
+use eastory;
+create schema if not exists eastory;
 
 create table if not exists languages
 (
@@ -45,4 +47,16 @@ create table if not exists tests
 		foreign key (topic_id) references topics (id)
 			on update cascade on delete cascade
 );
+
+create table if not exists results
+(
+	id int auto_increment
+	    primary key,
+	name              varchar(255) null,
+	number_of_answers int          null,
+	topic_id          int          null,
+	constraint results_topics_id_fk
+		foreign key (topic_id) references topics (id)
+);
+
 

@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="eastory" uuid="ff41e789-df6c-4c25-8599-d2c7ac26de4b">
-      <driver-ref>mysql</driver-ref>
+    <data-source source="LOCAL" name="ForEastory3.db" uuid="d5a5f15f-2db0-4e1d-a1fe-a6452b692c32">
+      <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$USER_HOME$/Downloads/ForEastory3.db</jdbc-url>
+      <driver-properties>
+        <property name="enable_load_extension" value="true" />
+      </driver-properties>
+    </data-source>
+    <data-source source="LOCAL" name="eastory" uuid="d7a38d41-3688-4ee0-bf75-675da7737c45">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
@@ -13,15 +22,7 @@
         <property name="characterEncoding" value="utf8" />
         <property name="characterSetResults" value="utf8" />
         <property name="yearIsDateType" value="false" />
-      </driver-properties>
-    </data-source>
-    <data-source source="LOCAL" name="ForEastory3.db" uuid="d5a5f15f-2db0-4e1d-a1fe-a6452b692c32">
-      <driver-ref>sqlite.xerial</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$USER_HOME$/Downloads/ForEastory3.db</jdbc-url>
-      <driver-properties>
-        <property name="enable_load_extension" value="true" />
+        <property name="useSSL" value="FALSE" />
       </driver-properties>
     </data-source>
   </component>

@@ -250,6 +250,13 @@ INSERT INTO eastory.questions (id, answer_1, answer_2, answer_3, answer_4, descr
 INSERT INTO eastory.questions (id, answer_1, answer_2, answer_3, answer_4, description, image, language_id, question, right_answer) VALUES (248, 'садоўніцтве і агародніцтва', 'птушкагадоўлі', 'мяса-малочнай жывёлагадоўлі', 'пчалярстве', 'У 1860-1870-я гг. сельская гаспадарка Беларусі спецыялізавалася на вытворчасці збожжа. Аднак у 1880-х гг. яго вытворчасць як рынкавай культуры стала ў Беларусі нявыгаднай. Еўрапейскія рынкі запоўніла больш якаснае і таннае збожжа з Амерыкі, а ўнутраны рын', null, 2, 'Сельская гаспадарка Беларусі ў канцы ХІХ-пачатку ХХ ст. спецыялізавалася на:', 3);
 INSERT INTO eastory.questions (id, answer_1, answer_2, answer_3, answer_4, description, image, language_id, question, right_answer) VALUES (249, 'ваенныя дзеянні Першай сусветнай вайны пачаліся на тэрыторыі Беларусі летам 1915 г.', 'у 1916 г., упершыню на Усходнім фронце, пад Вілейкай германскія войскі выкарысталі атрутны газ', 'германская акупацыйная ўлада ў гады Першай сусветнай вайны дапамагала стварэнню незалежнай беларускай дзяржавы', 'у пачатку Першай сусветнай вайны ў падтрымку царскага ўрада выступілі ўсе палітычныя партыі', 'З першых дзён вайны, якая для Расійскай імперыі пачалася 19 ліпеня (1 жніўня) 1914 г., беларускія губерні былі пераведзены на ваеннае становішча. Быў устаноўлены жорсткі ваенна - паліцэйскі рэжым, забаронена дзейнасць палітычных партый, сходы і мітынгі. У', null, 2, 'Вызначце правільнае сцвярджэнне:', 1);
 INSERT INTO eastory.questions (id, answer_1, answer_2, answer_3, answer_4, description, image, language_id, question, right_answer) VALUES (250, 'неадкладны выхад Расіі з Першай сусветнай вайны', 'стварэнне незалежнай беларускай дзяржавы', 'недавер да палітыкі Часовага ўрада', 'аўтаномію Беларусі ў складзе Расійскай федэратыўнай дэмакратычнай рэспублікі', 'Важную ролю ў развіцці беларускага нацыянальнага руху адыграў з''езд беларускіх нацыянальных арганізацый, які адбыўся ў сакавіку 1917 г. у Мінску. З''езд прыняў дэкларацыю ў падтрымку Часовага ўрада. Таксама ён выказаўся за аўтаномію Беларусі ў складзе Расе', null, 2, 'I з''езд беларускіх нацыянальных арганізацый, які адбыўся ў сакавіку 1917 г. у Мінску, выказаўся за:', 4);
+
+INSERT INTO eastory.topics (id, topic) VALUES (1, 'TaskAntiquity');
+INSERT INTO eastory.topics (id, topic) VALUES (2, 'TaskMedival');
+INSERT INTO eastory.topics (id, topic) VALUES (3, 'TaskNew1');
+INSERT INTO eastory.topics (id, topic) VALUES (4, 'TaskNew2');
+INSERT INTO eastory.topics (id, topic) VALUES (5, 'TaskSoviets');
+INSERT INTO eastory.topics (id, topic) VALUES (6, 'TaskNewest');
 INSERT INTO eastory.tests (id, topic_id, question_id) VALUES (1, 1, 65);
 INSERT INTO eastory.tests (id, topic_id, question_id) VALUES (2, 1, 66);
 INSERT INTO eastory.tests (id, topic_id, question_id) VALUES (3, 1, 67);
@@ -500,9 +507,3 @@ INSERT INTO eastory.tests (id, topic_id, question_id) VALUES (247, 6, 111);
 INSERT INTO eastory.tests (id, topic_id, question_id) VALUES (248, 6, 112);
 INSERT INTO eastory.tests (id, topic_id, question_id) VALUES (249, 6, 113);
 INSERT INTO eastory.tests (id, topic_id, question_id) VALUES (250, 6, 114);
-INSERT INTO eastory.topics (id, topic) VALUES (1, 'TaskAntiquity');
-INSERT INTO eastory.topics (id, topic) VALUES (2, 'TaskMedival');
-INSERT INTO eastory.topics (id, topic) VALUES (3, 'TaskNew1');
-INSERT INTO eastory.topics (id, topic) VALUES (4, 'TaskNew2');
-INSERT INTO eastory.topics (id, topic) VALUES (5, 'TaskSoviets');
-INSERT INTO eastory.topics (id, topic) VALUES (6, 'TaskNewest');
