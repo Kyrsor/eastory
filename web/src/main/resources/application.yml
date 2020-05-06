@@ -1,11 +1,11 @@
 spring:
-  # Database
+  profiles:
+    active: native
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/eastory?useSSL=false
-    username: root
-    password: root
-  # JPA properties
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/eastory?useSSL=false
+    username: ${MYSQL_USERNAME:root}
+    password: ${MYSQL_PASSWORD:root}
   jpa:
     hibernate:
       ddl-auto: update

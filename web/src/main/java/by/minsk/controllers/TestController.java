@@ -1,6 +1,8 @@
 package by.minsk.controllers;
 
+import by.minsk.dto.ResultDTO;
 import by.minsk.dto.TestDTO;
+import by.minsk.entity.Result;
 import by.minsk.impl.TestServiceImpl;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
@@ -44,6 +46,18 @@ public class TestController {
         log.info("TestController, create");
         return new ResponseEntity<>(testService.create(testDTOList), HttpStatus.CREATED);
     }
+
+    @PostMapping(value = "/check_results")
+    public ResponseEntity<?> checkResults(@RequestBody ResultDTO resultDTO) {
+        log.info("TestController, create");
+        return new ResponseEntity<>(testService.checkResults(resultDTO.getTopicId(),
+               resultDTO.getAnswerDTOList(),
+        resultDTO), HttpStatus.OK);
+    }
+
+
+
+
 
     @PutMapping
     public ResponseEntity<List<TestDTO>> update(@RequestBody List<TestDTO> testDTOList) {

@@ -1,5 +1,7 @@
 package by.minsk.intefaces;
 
+import by.minsk.dto.AnswerDTO;
+import by.minsk.dto.ResultDTO;
 import by.minsk.dto.TestDTO;
 
 import java.util.List;
@@ -16,4 +18,6 @@ public interface TestService {
     List<TestDTO> update(List<TestDTO> testDTOList);
 
     void deleteById(Integer id);
+
+    Integer checkResults(Integer topicId, List<AnswerDTO> answerDTOList, ResultDTO resultDTO);
 }
