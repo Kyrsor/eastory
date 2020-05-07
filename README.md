@@ -1,5 +1,5 @@
 # eastory
-In this repository we will develop our back-end of the project Eastory
+In this repository we will develop our backend of the project Eastory
 
 1. Установите MySQL
 
