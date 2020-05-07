@@ -1,6 +1,5 @@
 package by.minsk.intefaces;
 
-import by.minsk.dto.AnswerDTO;
 import by.minsk.dto.ResultDTO;
 import by.minsk.dto.TestDTO;
 
@@ -13,11 +12,13 @@ public interface TestService {
 
     List<TestDTO> findById(Integer id);
 
+    List<ResultDTO> findAllResults();
+
     List<TestDTO> create(List<TestDTO> testDTOList);
 
     List<TestDTO> update(List<TestDTO> testDTOList);
 
     void deleteById(Integer id);
 
-    Integer checkResults(Integer topicId, List<AnswerDTO> answerDTOList, ResultDTO resultDTO);
+    void checkResults(ResultDTO resultDTO);
 }

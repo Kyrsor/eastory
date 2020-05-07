@@ -34,6 +34,11 @@ public class TestController {
         return new ResponseEntity<>(testService.findAll(), HttpStatus.OK);
     }
 
+    @GetMapping(value="/find_all_results")
+    public ResponseEntity<?> findAllResults() {
+        log.info("TestController, findAllResults");
+        return new ResponseEntity<>(testService.findAllResults(), HttpStatus.OK);
+    }
     @GetMapping(value = "/{id}")
     public ResponseEntity<List<TestDTO>> findById(@PathVariable Integer id) {
         log.info("TestController, findById");
@@ -48,16 +53,11 @@ public class TestController {
     }
 
     @PostMapping(value = "/check_results")
-    public ResponseEntity<?> checkResults(@RequestBody ResultDTO resultDTO) {
-        log.info("TestController, create");
-        return new ResponseEntity<>(testService.checkResults(resultDTO.getTopicId(),
-               resultDTO.getAnswerDTOList(),
-        resultDTO), HttpStatus.OK);
+    public ResponseEntity checkResults(@RequestBody ResultDTO resultDTO) {
+        log.info("TestController, checkResults");
+        testService.checkResults(resultDTO);
+        return ResponseEntity.ok("Result is saved");
     }
-
-
-
-
 
     @PutMapping
     public ResponseEntity<List<TestDTO>> update(@RequestBody List<TestDTO> testDTOList) {
