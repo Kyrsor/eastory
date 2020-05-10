@@ -52,19 +52,6 @@ public class TopicServiceImpl implements TopicService {
 
     }
 
-    /*@Override
-    public TopicDTO findByName(String topicText) {
-        log.info("TopicServiceImpl, findByName");
-        Topic topic = topicRepository.findTopicByTopicText(topicText);
-
-        if (topic == null) {
-
-            throw new EntityNotFoundException("Cannot find topic by this parameter");
-        }
-
-        return topicConverter.convertToDTO(topic);
-
-    }*/
 
     @Override
     public TopicDTO create(TopicDTO topicDTO) {
