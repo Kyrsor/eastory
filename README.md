@@ -18,3 +18,5 @@ In this repository we will develop our backend of the project Eastory
 6. Выполните sql скрипты для создания БД и ее заполнения исходными данными находящиеся по пути: eastory/web/src/main/resources/db.
 
 7. После этого можно успешно запускать проект
+
+[API specification](https://docs.google.com/document/d/115uoITMA2LeG6Hk0_gF_ZqAI6yRIcfUlmCvh_ViNVoA/edit) <br>
